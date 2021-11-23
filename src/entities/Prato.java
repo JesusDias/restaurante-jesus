@@ -40,4 +40,13 @@ public class Prato {
 		this.descricao = String.format("%.2f", descricao);
 	}
 	
+	public String toString() {
+		StringBuilder objectString = new StringBuilder();
+		
+		objectString.append("\n").append("PRATO => ").append(this.nome).append("\n");
+		objectString.append("Preço: ").append(String.format("%.2f", this.preco)).append("\n");
+		objectString.append("Descrição: ").append(this.descricao).append("\n");
+		return objectString.toString();
+	}
+	
 }

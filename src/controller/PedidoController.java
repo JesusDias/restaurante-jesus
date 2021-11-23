@@ -18,15 +18,14 @@ public class PedidoController {
 		Prato pratoResult = this.pratoDao.buscapratoNome(prato);
 		Pedido pedido = new Pedido(numeroPedido, pratoResult, clienteResult);
 		this.pedidoDao.cadastraPedido(pedido);
-	}
+		}
 	
 	public String listarPedidos() {
-		return this.pedidoDao.listarPedidos().toString()
-				+this.clienteDao.listarClientes().toString()
-				+this.pratoDao.listarPratos().toString();
+		return this.pedidoDao.listarPedidos().toString();
 	}
 
 	public Pedido enviaPedido() {
-		return this.pedidoDao.enviaPedido();
+		Pedido enviado = this.pedidoDao.enviaPedido();
+		return enviado;
 	}
 }

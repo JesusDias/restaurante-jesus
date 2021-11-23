@@ -1,7 +1,7 @@
 package entities;
 
 public class Pedido {
-	
+		
 	private Integer numeroPedido;
 	private Prato prato;
 	private Cliente cliente;
@@ -38,5 +38,15 @@ public class Pedido {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	public String toString() {
+		return  "\n" 
+				+ ">>>>>>>>>>>>>>>>>Pedido "
+				+ " - "
+				+ this.numeroPedido
+				+ "<<<<<<<<<<<<<<<<<<<<<<<<"
+				+ "\n";
+
 	}
 }

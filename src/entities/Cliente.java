@@ -40,4 +40,13 @@ public class Cliente {
 	public void setFone(Integer fone) {
 		this.fone = fone;
 	}
+	
+	public String toString() {
+		StringBuilder objectString = new StringBuilder();
+		
+		objectString.append("\n").append("CLIENTE => ").append(this.nome).append("\n");
+		objectString.append("cpf: ").append(this.fone).append("\n");
+		objectString.append("Fone: ").append(this.fone).append("\n");
+		return objectString.toString();
+	}
 }

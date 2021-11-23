@@ -3,7 +3,7 @@ package controller;
 import dao.PratoDao;
 import entities.Prato;
 
-public class PratoCotrller {
+public class PratoController {
 	
 	private PratoDao pratoDao = new PratoDao();
 	

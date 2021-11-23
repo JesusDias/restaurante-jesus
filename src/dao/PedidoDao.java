@@ -18,7 +18,7 @@ public class PedidoDao {
 	}
 	
 	public Pedido enviaPedido() {
-		Pedido pedidoResult = filaPedidos.poll();
+		Pedido pedidoResult = filaPedidos.remove();
 		return pedidoResult;
 	}
 	
