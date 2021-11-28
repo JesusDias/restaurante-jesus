@@ -1,4 +1,4 @@
-package dao;
+package impl;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -23,16 +23,11 @@ public class PedidoDao {
 	}
 	
 	public String proximoPedido() {
-		return filaPedidos.peek().toString();
-		
-	}
-	
-	public boolean consultaExistenciaPedido(Pedido pedido) {
-		return filaPedidos.contains(pedido);
-	}
-	
-	public void cancelaTodosPedidos() {
-		filaPedidos.clear();
+		if(!filaPedidos.isEmpty()) {
+			return filaPedidos.peek().toString();
+		} else {
+			return "Lista vazia";
+		}
 	}
 	
 	public int qtdPedidosRestaurante() {
@@ -45,7 +40,7 @@ public class PedidoDao {
 	public Pedido buscaPedidoNumero(Integer numPedido) {
 		Pedido pedidoResult = null;
 		for (Pedido pedido : filaPedidos) {
-			if (numPedido.equals(pedidoResult.getNumeroPedido())) {
+			if (numPedido.equals(pedido.getNumeroPedido())) {
 				pedidoResult = pedido;
 			}
 		}

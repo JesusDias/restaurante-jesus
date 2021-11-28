@@ -1,11 +1,11 @@
 package controller;
 
-import dao.ClienteDao;
-import dao.PedidoDao;
-import dao.PratoDao;
 import entities.Cliente;
 import entities.Pedido;
 import entities.Prato;
+import impl.ClienteDao;
+import impl.PedidoDao;
+import impl.PratoDao;
 
 public class PedidoController {
 	
@@ -16,8 +16,13 @@ public class PedidoController {
 	public void cadastraPedido(Integer numeroPedido, String prato, String cliente) {
 		Cliente clienteResult = this.clienteDao.buscaClienteNome(cliente);
 		Prato pratoResult = this.pratoDao.buscapratoNome(prato);
-		Pedido pedido = new Pedido(numeroPedido, pratoResult, clienteResult);
-		this.pedidoDao.cadastraPedido(pedido);
+		if (clienteResult == null || pratoResult == null) {
+			System.out.println("\nDados inválidos!");
+			return;
+		} else {
+			Pedido pedido = new Pedido(numeroPedido, pratoResult, clienteResult);
+			this.pedidoDao.cadastraPedido(pedido);
+			}
 		}
 	
 	public String listarPedidos() {
@@ -25,7 +30,19 @@ public class PedidoController {
 	}
 
 	public Pedido enviaPedido() {
-		Pedido enviado = this.pedidoDao.enviaPedido();
-		return enviado;
+		return this.pedidoDao.enviaPedido();
+	}
+	
+	public String mostrarProximoPedido() {
+		return this.pedidoDao.proximoPedido().toString();
+	}
+	
+	public void buscarPedido(int num) {
+		Pedido pedido = this.pedidoDao.buscaPedidoNumero(num);
+		if (pedido != null) {
+			System.out.println("\nPedido aguardando para entrega\n" + pedido.getCliente().getNome() + " - " + pedido.getPrato().getNome() + "\n");
+		} else {
+			System.out.println("\nPedido não encontrado\n");
+		}
 	}
 }

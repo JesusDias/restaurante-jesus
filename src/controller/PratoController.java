@@ -1,7 +1,7 @@
 package controller;
 
-import dao.PratoDao;
 import entities.Prato;
+import impl.PratoDao;
 
 public class PratoController {
 	

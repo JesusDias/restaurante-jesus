@@ -1,4 +1,4 @@
-package restaurantejesus;
+package application;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -12,12 +12,10 @@ public class Application {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 		/*
 		 * temporariamente */
 		fakeData();
-		
-		System.out.println("\n**************  RESTAURANTE DOS GURI  **************\n\n"
-				+ "1 - CADASTRAR PRATO" + "\n2 - CADASTRAR CLIENTE" + "\n3 - CADASTRAR PEDIDO" +"\n4 - LISTAR PRATOS" + "\n5 - LISTAR CLIENETS" + "\n6 - LISTAR PEDIDOS" + "\n7 - SAIR");
 		
 		ClienteController clienteController = new ClienteController();
 		PratoController pratoController = new PratoController();
@@ -27,6 +25,9 @@ public class Application {
 		
 		do 
 		{
+			System.out.println("\n**************  RESTAURANTE DOS GURI  **************\n\n"
+					+ "1 - CADASTRAR PRATO" + "\n2 - CADASTRAR CLIENTE" + "\n3 - CADASTRAR PEDIDO" +"\n4 - LISTAR PRATOS" 
+					+ "\n5 - LISTAR CLIENETS" + "\n6 - LISTAR PEDIDOS" + "\n7 - ENVIAPEDIDO" + "\n8 - PRÓXIMO PEDIDO" + "\n9 - PESQUSAER PEDIDO" + "\n0 - SAIR");
 			System.out.print("Informe a opção desejada: ");
 			opcao = sc.nextInt();
 			
@@ -82,11 +83,22 @@ public class Application {
 			
 			if (opcao == 7) {
 				
-				System.out.println("Pedido " + pedidoController.enviaPedido().getNumeroPedido() + "enviado com sucesso!\n");
+				System.out.println("\nPedido " + pedidoController.enviaPedido() + "<  enviado com sucesso!\n");
 			}
 			
+			if (opcao == 8) {
+				
+				System.out.println("\nProximo pedido\n" + pedidoController.mostrarProximoPedido()+ "\n");
+			}
 			
-		} while (opcao != 9);
+			if (opcao == 9) {
+				System.out.println("Informe dados: ");
+				System.out.print("numero do pedido a ser pesquisado: ");
+				int valor = sc.nextInt();
+				pedidoController.buscarPedido(valor);
+			}
+			
+		} while (opcao != 0);
 		
 		sc.close();
 	}

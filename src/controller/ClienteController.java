@@ -1,7 +1,7 @@
 package controller;
 
-import dao.ClienteDao;
 import entities.Cliente;
+import impl.ClienteDao;
 
 public class ClienteController {
 	

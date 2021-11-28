@@ -37,15 +37,12 @@ public class Prato {
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = String.format("%.2f", descricao);
+		this.descricao = descricao;
 	}
 	
 	public String toString() {
 		StringBuilder objectString = new StringBuilder();
-		
-		objectString.append("\n").append("PRATO => ").append(this.nome).append("\n");
-		objectString.append("Preço: ").append(String.format("%.2f", this.preco)).append("\n");
-		objectString.append("Descrição: ").append(this.descricao).append("\n");
+		objectString.append("\n").append("Nome: ").append(this.nome).append("\n");
 		return objectString.toString();
 	}
 	

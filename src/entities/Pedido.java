@@ -46,7 +46,12 @@ public class Pedido {
 				+ " - "
 				+ this.numeroPedido
 				+ "<<<<<<<<<<<<<<<<<<<<<<<<"
+				+ "\n"
+				+ "Cliente: "
+				+ this.getCliente().getNome()
+				+ " - "
+				+ "Prato "
+				+ this.getPrato().getNome()
 				+ "\n";
-
 	}
 }
