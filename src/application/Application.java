@@ -13,10 +13,6 @@ public class Application {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		/*
-		 * temporariamente */
-		fakeData();
-		
 		ClienteController clienteController = new ClienteController();
 		PratoController pratoController = new PratoController();
 		PedidoController pedidoController = new PedidoController();
@@ -101,18 +97,5 @@ public class Application {
 		} while (opcao != 0);
 		
 		sc.close();
-	}
-	
-	public static void fakeData() {
-		ClienteController clienteController = new ClienteController();
-		PratoController pratoController = new PratoController();
-		
-		clienteController.cadastraCliente("jesus", 202124232, 45422565);
-		clienteController.cadastraCliente("willian", 25212552, 45521225);
-		clienteController.cadastraCliente("vinicius", 63235412, 99864123);
-		
-		pratoController.cadastraPrato("Feijoada", 250.0, "Prato típico baiano");
-		pratoController.cadastraPrato("Carreteiro", 185.0, "Prato típico Gauchesco");
-		pratoController.cadastraPrato("Matambre recheado", 326.0, "iguaria Gauchesco");
 	}
 }

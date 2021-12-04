@@ -11,5 +11,4 @@ public interface ClienteInterface {
 	public List<Cliente> listarClientes();
 	
 	public Cliente buscaClienteNome(String nome);
-
 }

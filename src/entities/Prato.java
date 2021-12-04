@@ -45,5 +45,4 @@ public class Prato {
 		objectString.append("\n").append("Nome: ").append(this.nome).append("\n");
 		return objectString.toString();
 	}
-	
 }

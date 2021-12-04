@@ -13,6 +13,7 @@ public class PedidoController {
 	private ClienteDao clienteDao = new ClienteDao();
 	private PratoDao pratoDao = new PratoDao();
 	
+	
 	public void cadastraPedido(Integer numeroPedido, String prato, String cliente) {
 		Cliente clienteResult = this.clienteDao.buscaClienteNome(cliente);
 		Prato pratoResult = this.pratoDao.buscapratoNome(prato);
